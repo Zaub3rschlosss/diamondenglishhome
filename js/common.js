@@ -58,12 +58,13 @@ function send() {
     let formData = new FormData(form);
     console.log(formData);
     let btnSubmitTitle = document.querySelector('#form [type="submit"]');
+    let formVersion = document.querySelector("fieldset.hidden-fields-container").querySelector('input[name="_wpcf7"]').value;
     if (btnSubmitTitle) {
         btnSubmitTitle.children[0].classList.toggle('active');
         btnSubmitTitle.children[1].classList.toggle('active');
     }
 
-    fetch('https://diamondenglishhome.com/wp-json/contact-form-7/v1/contact-forms/57/feedback', {
+    fetch('https://diamondenglishhome.com/wp-json/contact-form-7/v1/contact-forms/' + formVersion + '/feedback', {
         method: 'POST',
         body: formData
     }).then(
