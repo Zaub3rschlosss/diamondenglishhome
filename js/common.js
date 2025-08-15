@@ -56,13 +56,14 @@ burger.addEventListener('click', () => {
 
 function send() {
     let formData = new FormData(form);
+    console.log(formData);
     let btnSubmitTitle = document.querySelector('#form [type="submit"]');
     if (btnSubmitTitle) {
         btnSubmitTitle.children[0].classList.toggle('active');
         btnSubmitTitle.children[1].classList.toggle('active');
     }
 
-    fetch('sendmail.php', {
+    fetch('https://diamondenglishhome.com/wp-json/contact-form-7/v1/contact-forms/57/feedback', {
         method: 'POST',
         body: formData
     }).then(
